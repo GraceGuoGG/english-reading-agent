@@ -1,0 +1,46 @@
+[project]
+name = "english-reading-agent"
+version = "0.1.0"
+description = "AI技术英文阅读陪练Agent"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.34.0",
+    "lark-oapi>=1.4.0",
+    "httpx>=0.28.0",
+    "feedparser>=6.0.0",
+    "apscheduler>=3.11.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    "openai>=1.60.0",
+    "loguru>=0.7.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.0",
+    "mcp>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.25.0",
+    "ruff>=0.9.0",
+]
+
+[build-system]
+requires = ["setuptools>=75.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
